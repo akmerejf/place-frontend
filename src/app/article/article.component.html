@@ -9,13 +9,13 @@
           <span [hidden]="!canModify">
           <a class="btn btn-sm btn-outline-secondary"
              [routerLink]="['/editor', article.slug]">
-            <i class="ion-edit"></i> Edit Article
+            <i class="ion-edit"></i> Editar Projeto
           </a>
 
           <button class="btn btn-sm btn-outline-danger"
             [ngClass]="{disabled: isDeleting}"
             (click)="deleteArticle()">
-            <i class="ion-trash-a"></i> Delete Article
+            <i class="ion-trash-a"></i> Deletar Projeto
           </button>
         </span>
 
@@ -28,7 +28,7 @@
           <favorite-button
             [article]="article"
             (onToggle)="onToggleFavorite($event)">
-            {{ article.favorited ? 'Unfavorite' : 'Favorite' }} Article <span class="counter">({{ article.favoritesCount }})</span>
+            {{ article.favorited ? 'Unfavorite' : 'Favorite' }} Projeto <span class="counter">({{ article.favoritesCount }})</span>
           </favorite-button>
         </span>
 
@@ -61,13 +61,13 @@
           <span [hidden]="!canModify">
           <a class="btn btn-sm btn-outline-secondary"
              [routerLink]="['/editor', article.slug]">
-            <i class="ion-edit"></i> Edit Article
+            <i class="ion-edit"></i> Editar Projeto
           </a>
 
           <button class="btn btn-sm btn-outline-danger"
             [ngClass]="{disabled: isDeleting}"
             (click)="deleteArticle()">
-            <i class="ion-trash-a"></i> Delete Article
+            <i class="ion-trash-a"></i> Deletar Projeto
           </button>
         </span>
 
@@ -80,7 +80,7 @@
           <favorite-button
             [article]="article"
             (onToggle)="onToggleFavorite($event)">
-            {{ article.favorited ? 'Unfavorite' : 'Favorite' }} Article <span class="counter">({{ article.favoritesCount }})</span>
+            {{ article.favorited ? 'Unfavorite' : 'Favorite' }} Projeto <span class="counter">({{ article.favoritesCount }})</span>
           </favorite-button>
         </span>
 
@@ -104,7 +104,7 @@
               <div class="card-footer">
                 <img [src]="currentUser.image" class="comment-author-img" />
                 <button class="btn btn-sm btn-primary" type="submit">
-                 Post Comment
+                 Deixar Comentário
                 </button>
               </div>
             </fieldset>
@@ -112,7 +112,7 @@
         </div>
 
         <div *showAuthed="false">
-          <a [routerLink]="['/login']">Sign in</a> or <a [routerLink]="['/register']">sign up</a> to add comments on this article.
+          <a [routerLink]="['/login']">Entre</a> ou <a [routerLink]="['/register']">cadastre-se</a> para comentar neste projeto.
         </div>
 
         <article-comment
