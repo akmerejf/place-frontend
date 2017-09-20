@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { ArticleModule } from './article/article.module';
+import { ProjectModule } from './project/project.module';
 import { AuthModule } from './auth/auth.module';
 import { EditorModule } from './editor/editor.module';
 import { HomeModule } from './home/home.module';
@@ -11,7 +11,7 @@ import { ProfileModule } from './profile/profile.module';
 import { SettingsModule } from './settings/settings.module';
 import {
   ApiService,
-  ArticlesService,
+  ProjectsService,
   AuthGuard,
   CommentsService,
   FooterComponent,
@@ -33,7 +33,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
   ],
   imports: [
     BrowserModule,
-    ArticleModule,
+    ProjectModule,
     AuthModule,
     EditorModule,
     HomeModule,
@@ -44,7 +44,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
   ],
   providers: [
     ApiService,
-    ArticlesService,
+    ProjectsService,
     AuthGuard,
     CommentsService,
     JwtService,

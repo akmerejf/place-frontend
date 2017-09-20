@@ -5,28 +5,28 @@
 
         <list-errors [errors]="errors"></list-errors>
 
-        <form [formGroup]="articleForm">
+        <form [formGroup]="projectForm">
           <fieldset [disabled]="isSubmitting">
 
             <fieldset class="form-group">
               <input class="form-control form-control-lg"
                 formControlName="title"
                 type="text"
-                placeholder="Article Title" />
+                placeholder="Project Title" />
             </fieldset>
 
             <fieldset class="form-group">
               <input class="form-control"
                 formControlName="description"
                 type="text"
-                placeholder="What's this article about?" />
+                placeholder="What's this project about?" />
             </fieldset>
 
             <fieldset class="form-group">
               <textarea class="form-control"
                 formControlName="body"
                 rows="8"
-                placeholder="Write your article (in markdown)">
+                placeholder="Write your project (in markdown)">
               </textarea>
             </fieldset>
 
@@ -38,7 +38,7 @@
                 (keyup.enter)="addTag()" />
 
               <div class="tag-list">
-                <span *ngFor="let tag of article.tagList"
+                <span *ngFor="let tag of project.tagList"
                   class="tag-default tag-pill">
                   <i class="ion-close-round" (click)="removeTag(tag)"></i>
                   {{ tag }}
@@ -47,7 +47,7 @@
             </fieldset>
 
             <button class="btn btn-lg pull-xs-right btn-primary" type="button" (click)="submitForm()">
-              Publish Article
+              Publish Project
             </button>
 
           </fieldset>

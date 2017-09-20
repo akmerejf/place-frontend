@@ -3,10 +3,10 @@ import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { Comment, User, UserService } from '../shared';
 
 @Component({
-  selector: 'article-comment',
-  templateUrl: './article-comment.component.html'
+  selector: 'project-comment',
+  templateUrl: './project-comment.component.html'
 })
-export class ArticleCommentComponent implements OnInit {
+export class ProjectCommentComponent implements OnInit {
   constructor(
     private userService: UserService
   ) {}

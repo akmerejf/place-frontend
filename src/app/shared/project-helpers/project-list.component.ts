@@ -1,20 +1,20 @@
 import { Component, Input } from '@angular/core';
 
-import { Article, ArticleListConfig } from '../models';
-import { ArticlesService } from '../services';
+import { Project, ProjectListConfig } from '../models';
+import { ProjectsService } from '../services';
 
 @Component({
-  selector: 'article-list',
-  templateUrl: './article-list.component.html'
+  selector: 'project-list',
+  templateUrl: './project-list.component.html'
 })
-export class ArticleListComponent {
+export class ProjectListComponent {
   constructor (
-    private articlesService: ArticlesService
+    private projectsService: ProjectsService
   ) {}
 
   @Input() limit: number;
   @Input()
-  set config(config: ArticleListConfig) {
+  set config(config: ProjectListConfig) {
     if (config) {
       this.query = config;
       this.currentPage = 1;
@@ -22,8 +22,8 @@ export class ArticleListComponent {
     }
   }
 
-  query: ArticleListConfig;
-  results: Article[];
+  query: ProjectListConfig;
+  results: Project[];
   loading = false;
   currentPage = 1;
   totalPages: Array<number> = [1];
@@ -43,13 +43,13 @@ export class ArticleListComponent {
       this.query.filters.offset =  (this.limit * (this.currentPage - 1))
     }
 
-    this.articlesService.query(this.query)
+    this.projectsService.query(this.query)
     .subscribe(data => {
       this.loading = false;
-      this.results = data.articles;
+      this.results = data.projects;
 
       // Used from http://www.jstips.co/en/create-range-0...n-easily-using-one-line/
-      this.totalPages = Array.from(new Array(Math.ceil(data.articlesCount / this.limit)), (val, index) => index + 1);
+      this.totalPages = Array.from(new Array(Math.ceil(data.projectsCount / this.limit)), (val, index) => index + 1);
     });
   }
 }

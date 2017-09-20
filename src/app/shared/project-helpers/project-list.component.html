@@ -1,16 +1,16 @@
-<article-preview
-  *ngFor="let article of results"
-  [article]="article">
-</article-preview>
+<project-preview
+  *ngFor="let project of results"
+  [project]="project">
+</project-preview>
 
-<div class="article-preview"
+<div class="project-preview"
   [hidden]="!loading">
-  Loading articles...
+  Loading projects...
 </div>
 
-<div class="article-preview"
+<div class="project-preview"
   [hidden]="loading || results.length">
-  No articles are here... yet.
+  No projects are here... yet.
 </div>
 
 <nav [hidden]="loading || totalPages <= 1">

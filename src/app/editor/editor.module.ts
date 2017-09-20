@@ -2,7 +2,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { EditorComponent } from './editor.component';
-import { EditableArticleResolver } from './editable-article-resolver.service';
+import { EditableProjectResolver } from './editable-project-resolver.service';
 import { AuthGuard, SharedModule } from '../shared';
 
 const editorRouting: ModuleWithProviders = RouterModule.forChild([
@@ -16,7 +16,7 @@ const editorRouting: ModuleWithProviders = RouterModule.forChild([
     component: EditorComponent,
     canActivate: [AuthGuard],
     resolve: {
-      article: EditableArticleResolver
+      project: EditableProjectResolver
     }
   }
 ]);
@@ -30,7 +30,7 @@ const editorRouting: ModuleWithProviders = RouterModule.forChild([
     EditorComponent
   ],
   providers: [
-    EditableArticleResolver
+    EditableProjectResolver
   ]
 })
 export class EditorModule {}

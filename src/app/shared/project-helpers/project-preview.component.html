@@ -1,0 +1,22 @@
+<div class="project-preview">
+  <project-meta [project]="project">
+    <favorite-button
+      [project]="project"
+      (onToggle)="onToggleFavorite($event)"
+      class="pull-xs-right">
+      {{project.favoritesCount}}
+    </favorite-button>
+  </project-meta>
+
+  <a [routerLink]="['/project', project.slug]" class="preview-link">
+    <h1>{{ project.title }}</h1>
+    <p>{{ project.description }}</p>
+    <span>Read more...</span>
+    <ul class="tag-list">
+      <li class="tag-default tag-pill tag-outline"
+        *ngFor="let tag of project.tagList">
+        {{ tag }}
+      </li>
+    </ul>
+  </a>
+</div>

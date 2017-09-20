@@ -1,4 +1,4 @@
-export class ArticleListConfig {
+export class ProjectListConfig {
   type = 'all';
 
   filters: {

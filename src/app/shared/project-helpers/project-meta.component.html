@@ -1,0 +1,17 @@
+<div class="project-meta">
+  <a [routerLink]="['/profile', project.author.username]">
+    <img [src]="project.author.image" />
+  </a>
+
+  <div class="info">
+    <a class="author"
+      [routerLink]="['/profile', project.author.username]">
+      {{ project.author.username }}
+    </a>
+    <span class="date">
+      {{ project.createdAt | date: 'longDate' }}
+    </span>
+  </div>
+
+  <ng-content></ng-content>
+</div>

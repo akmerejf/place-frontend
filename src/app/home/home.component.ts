@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ArticleListConfig, TagsService, UserService } from '../shared';
+import { ProjectListConfig, TagsService, UserService } from '../shared';
 
 @Component({
   selector: 'home-page',
@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   isAuthenticated: boolean;
-  listConfig: ArticleListConfig = new ArticleListConfig();
+  listConfig: ProjectListConfig = new ProjectListConfig();
   tags: Array<string> = [];
   tagsLoaded = false;
 
@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
       (authenticated) => {
         this.isAuthenticated = authenticated;
 
-        // set the article list accordingly
+        // set the project list accordingly
         if (authenticated) {
           this.setListTo('feed');
         } else {

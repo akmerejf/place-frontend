@@ -2,42 +2,42 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Article, ArticlesService } from '../shared';
+import { Project, ProjectsService } from '../shared';
 
 @Component({
   selector: 'editor-page',
   templateUrl: './editor.component.html'
 })
 export class EditorComponent implements OnInit {
-  article: Article = new Article();
-  articleForm: FormGroup;
+  project: Project = new Project();
+  projectForm: FormGroup;
   tagField = new FormControl();
   errors: Object = {};
   isSubmitting = false;
 
   constructor(
-    private articlesService: ArticlesService,
+    private projectsService: ProjectsService,
     private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder
   ) {
     // use the FormBuilder to create a form group
-    this.articleForm = this.fb.group({
+    this.projectForm = this.fb.group({
       title: '',
       description: '',
       body: '',
     });
     // Optional: subscribe to value changes on the form
-    // this.articleForm.valueChanges.subscribe(value => this.updateArticle(value));
+    // this.projectForm.valueChanges.subscribe(value => this.updateProject(value));
   }
 
   ngOnInit() {
-    // If there's an article prefetched, load it
+    // If there's an project prefetched, load it
     this.route.data.subscribe(
-      (data: {article: Article}) => {
-        if (data.article) {
-          this.article = data.article;
-          this.articleForm.patchValue(data.article);
+      (data: {project: Project}) => {
+        if (data.project) {
+          this.project = data.project;
+          this.projectForm.patchValue(data.project);
         }
       }
     );
@@ -47,28 +47,28 @@ export class EditorComponent implements OnInit {
     // retrieve tag control
     const tag = this.tagField.value;
     // only add tag if it does not exist yet
-    if (this.article.tagList.indexOf(tag) < 0) {
-      this.article.tagList.push(tag);
+    if (this.project.tagList.indexOf(tag) < 0) {
+      this.project.tagList.push(tag);
     }
     // clear the input
     this.tagField.reset('');
   }
 
   removeTag(tagName: string) {
-    this.article.tagList = this.article.tagList.filter((tag) => tag !== tagName);
+    this.project.tagList = this.project.tagList.filter((tag) => tag !== tagName);
   }
 
   submitForm() {
     this.isSubmitting = true;
 
     // update the model
-    this.updateArticle(this.articleForm.value);
+    this.updateProject(this.projectForm.value);
 
     // post the changes
-    this.articlesService
-    .save(this.article)
+    this.projectsService
+    .save(this.project)
     .subscribe(
-      article => this.router.navigateByUrl('/article/' + article.slug),
+      project => this.router.navigateByUrl('/project/' + project.slug),
       err => {
         this.errors = err;
         this.isSubmitting = false;
@@ -76,7 +76,7 @@ export class EditorComponent implements OnInit {
     );
   }
 
-  updateArticle(values: Object) {
-    (<any>Object).assign(this.article, values);
+  updateProject(values: Object) {
+    (<any>Object).assign(this.project, values);
   }
 }

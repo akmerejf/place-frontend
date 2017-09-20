@@ -3,8 +3,8 @@ import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import {
-  Article,
-  ArticlesService,
+  Project,
+  ProjectsService,
   Comment,
   CommentsService,
   User,
@@ -12,11 +12,11 @@ import {
 } from '../shared';
 
 @Component({
-  selector: 'article-page',
-  templateUrl: './article.component.html'
+  selector: 'project-page',
+  templateUrl: './project.component.html'
 })
-export class ArticleComponent implements OnInit {
-  article: Article;
+export class ProjectComponent implements OnInit {
+  project: Project;
   currentUser: User;
   canModify: boolean;
   comments: Comment[];
@@ -27,19 +27,19 @@ export class ArticleComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private articlesService: ArticlesService,
+    private projectsService: ProjectsService,
     private commentsService: CommentsService,
     private router: Router,
     private userService: UserService,
   ) { }
 
   ngOnInit() {
-    // Retreive the prefetched article
+    // Retreive the prefetched project
     this.route.data.subscribe(
-      (data: { article: Article }) => {
-        this.article = data.article;
+      (data: { project: Project }) => {
+        this.project = data.project;
 
-        // Load the comments on this article
+        // Load the comments on this project
         this.populateComments();
       }
     );
@@ -49,29 +49,29 @@ export class ArticleComponent implements OnInit {
       (userData: User) => {
         this.currentUser = userData;
 
-        this.canModify = (this.currentUser.username === this.article.author.username);
+        this.canModify = (this.currentUser.username === this.project.author.username);
       }
     );
   }
 
   onToggleFavorite(favorited: boolean) {
-    this.article.favorited = favorited;
+    this.project.favorited = favorited;
 
     if (favorited) {
-      this.article.favoritesCount++;
+      this.project.favoritesCount++;
     } else {
-      this.article.favoritesCount--;
+      this.project.favoritesCount--;
     }
   }
 
   onToggleFollowing(following: boolean) {
-    this.article.author.following = following;
+    this.project.author.following = following;
   }
 
-  deleteArticle() {
+  deleteProject() {
     this.isDeleting = true;
 
-    this.articlesService.destroy(this.article.slug)
+    this.projectsService.destroy(this.project.slug)
       .subscribe(
         success => {
           this.router.navigateByUrl('/');
@@ -80,7 +80,7 @@ export class ArticleComponent implements OnInit {
   }
 
   populateComments() {
-    this.commentsService.getAll(this.article.slug)
+    this.commentsService.getAll(this.project.slug)
       .subscribe(comments => this.comments = comments);
   }
 
@@ -90,7 +90,7 @@ export class ArticleComponent implements OnInit {
 
     const commentBody = this.commentControl.value;
     this.commentsService
-      .add(this.article.slug, commentBody)
+      .add(this.project.slug, commentBody)
       .subscribe(
         comment => {
           this.comments.unshift(comment);
@@ -105,7 +105,7 @@ export class ArticleComponent implements OnInit {
   }
 
   onDeleteComment(comment) {
-    this.commentsService.destroy(comment.id, this.article.slug)
+    this.commentsService.destroy(comment.id, this.project.slug)
       .subscribe(
         success => {
           this.comments = this.comments.filter((item) => item !== comment);
