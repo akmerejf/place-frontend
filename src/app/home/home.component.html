@@ -2,8 +2,8 @@
 
   <div class="banner" *showAuthed="false">
     <div class="container">
-      <h1 class="logo-font">conduit</h1>
-      <p>A place to share your <i>Angular 2</i> knowledge.</p>
+      <h1 class="logo-font">place!</h1>
+      <p>Plataforma Colaborativa de Estimulo à Inovação.</p>
     </div>
   </div>
 
@@ -17,14 +17,14 @@
               <a class="nav-link"
                  [ngClass]="{'active': listConfig.type === 'feed'}"
                  (click)="setListTo('feed')">
-                 Your Feed
+                 Seu Feed
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link"
                  [ngClass]="{'active': listConfig.type === 'all' && !listConfig.filters.tag}"
                  (click)="setListTo('all')">
-                 Global Feed
+                 Feed Global
               </a>
             </li>
             <li class="nav-item" [hidden]="!listConfig.filters.tag">
@@ -40,7 +40,7 @@
 
       <div class="col-md-3">
         <div class="sidebar">
-          <p>Popular Tags</p>
+          <p>Tags Populares</p>
 
           <div class="tag-list">
             <a href="#"
@@ -52,15 +52,14 @@
           </div>
 
           <div [hidden]="tagsLoaded">
-            Loading tags...
+            Carregando tags...
           </div>
 
           <div [hidden]="!tagsLoaded || tags.length">
-            No tags are here... yet.
+            Nenhuma tag cadastrada... ainda.
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>

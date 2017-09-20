@@ -8,14 +8,24 @@
 
           <span [hidden]="!canModify">
           <a class="btn btn-sm btn-outline-secondary"
+<<<<<<< HEAD:src/app/project/project.component.html
              [routerLink]="['/editor', project.slug]">
             <i class="ion-edit"></i> Edit Project
+=======
+             [routerLink]="['/editor', article.slug]">
+            <i class="ion-edit"></i> Editar Projeto
+>>>>>>> 3238a29a41f99a4f3c07eecc520c2ffc160d7788:src/app/article/article.component.html
           </a>
 
           <button class="btn btn-sm btn-outline-danger"
             [ngClass]="{disabled: isDeleting}"
+<<<<<<< HEAD:src/app/project/project.component.html
             (click)="deleteProject()">
             <i class="ion-trash-a"></i> Delete Project
+=======
+            (click)="deleteArticle()">
+            <i class="ion-trash-a"></i> Deletar Projeto
+>>>>>>> 3238a29a41f99a4f3c07eecc520c2ffc160d7788:src/app/article/article.component.html
           </button>
         </span>
 
@@ -28,7 +38,11 @@
           <favorite-button
             [project]="project"
             (onToggle)="onToggleFavorite($event)">
+<<<<<<< HEAD:src/app/project/project.component.html
             {{ project.favorited ? 'Unfavorite' : 'Favorite' }} Project <span class="counter">({{ project.favoritesCount }})</span>
+=======
+            {{ article.favorited ? 'Unfavorite' : 'Favorite' }} Projeto <span class="counter">({{ article.favoritesCount }})</span>
+>>>>>>> 3238a29a41f99a4f3c07eecc520c2ffc160d7788:src/app/article/article.component.html
           </favorite-button>
         </span>
 
@@ -60,14 +74,24 @@
 
           <span [hidden]="!canModify">
           <a class="btn btn-sm btn-outline-secondary"
+<<<<<<< HEAD:src/app/project/project.component.html
              [routerLink]="['/editor', project.slug]">
             <i class="ion-edit"></i> Edit Project
+=======
+             [routerLink]="['/editor', article.slug]">
+            <i class="ion-edit"></i> Editar Projeto
+>>>>>>> 3238a29a41f99a4f3c07eecc520c2ffc160d7788:src/app/article/article.component.html
           </a>
 
           <button class="btn btn-sm btn-outline-danger"
             [ngClass]="{disabled: isDeleting}"
+<<<<<<< HEAD:src/app/project/project.component.html
             (click)="deleteProject()">
             <i class="ion-trash-a"></i> Delete Project
+=======
+            (click)="deleteArticle()">
+            <i class="ion-trash-a"></i> Deletar Projeto
+>>>>>>> 3238a29a41f99a4f3c07eecc520c2ffc160d7788:src/app/article/article.component.html
           </button>
         </span>
 
@@ -80,7 +104,11 @@
           <favorite-button
             [project]="project"
             (onToggle)="onToggleFavorite($event)">
+<<<<<<< HEAD:src/app/project/project.component.html
             {{ project.favorited ? 'Unfavorite' : 'Favorite' }} Project <span class="counter">({{ project.favoritesCount }})</span>
+=======
+            {{ article.favorited ? 'Unfavorite' : 'Favorite' }} Projeto <span class="counter">({{ article.favoritesCount }})</span>
+>>>>>>> 3238a29a41f99a4f3c07eecc520c2ffc160d7788:src/app/article/article.component.html
           </favorite-button>
         </span>
 
@@ -104,7 +132,7 @@
               <div class="card-footer">
                 <img [src]="currentUser.image" class="comment-author-img" />
                 <button class="btn btn-sm btn-primary" type="submit">
-                 Post Comment
+                 Deixar Comentário
                 </button>
               </div>
             </fieldset>
@@ -112,7 +140,11 @@
         </div>
 
         <div *showAuthed="false">
+<<<<<<< HEAD:src/app/project/project.component.html
           <a [routerLink]="['/login']">Sign in</a> or <a [routerLink]="['/register']">sign up</a> to add comments on this project.
+=======
+          <a [routerLink]="['/login']">Entre</a> ou <a [routerLink]="['/register']">cadastre-se</a> para comentar neste projeto.
+>>>>>>> 3238a29a41f99a4f3c07eecc520c2ffc160d7788:src/app/article/article.component.html
         </div>
 
         <project-comment
