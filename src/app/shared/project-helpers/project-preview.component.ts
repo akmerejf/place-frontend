@@ -4,7 +4,8 @@ import { Project } from '../models';
 
 @Component({
   selector: 'project-preview',
-  templateUrl: './project-preview.component.html'
+  templateUrl: './project-preview.component.html',
+  styleUrls: ['./project-preview.component.css']
 })
 export class ProjectPreviewComponent {
   @Input() project: Project;

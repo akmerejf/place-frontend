@@ -1,22 +1,49 @@
-<div class="project-preview">
-  <project-meta [project]="project">
-    <favorite-button
-      [project]="project"
-      (onToggle)="onToggleFavorite($event)"
-      class="pull-xs-right">
-      {{project.favoritesCount}}
-    </favorite-button>
-  </project-meta>
 
-  <a [routerLink]="['/project', project.slug]" class="preview-link">
-    <h1>{{ project.title }}</h1>
-    <p>{{ project.description }}</p>
-    <span>Read more...</span>
-    <ul class="tag-list">
-      <li class="tag-default tag-pill tag-outline"
-        *ngFor="let tag of project.tagList">
-        {{ tag }}
-      </li>
-    </ul>
-  </a>
+<div class="card card-inverse card-info">
+    <img class="card-img-top" src="http://localhost:3000{{project.picture}}">
+    <div class="card-block">
+       
+        <a class="author"
+        [routerLink]="['/profile', project.author.username]">
+        <figure class="profile profile-inline">
+            <img [src]="project.author.image" class="profile-avatar" alt="">
+        </figure>
+        {{ project.author.username }}
+        
+        </a>
+        
+        <a [routerLink]="['/project', project.slug]" class="preview-link">
+          
+          <h4 class="card-title mt-3">{{ project.title}}</h4>
+          
+          <div class="card-text">
+              {{ project.description }}
+          </div>
+          <span>Saber mais...</span>
+        </a>
+    </div>
+    <div class="card-footer">
+        <favorite-button
+        [project]="project"
+        (onToggle)="onToggleFavorite($event)"
+        class="float-right">
+        {{project.favoritesCount}}
+        </favorite-button>
+        <a *ngIf="project.favorited">Amei</a>
+        <p>
+          <span class="date">
+            {{ project.createdAt | date: 'longDate' }}
+          </span>
+        </p>
+        
+          <ul class="tag-list">
+              <li class="tag-default tag-pill tag-outline"
+                *ngFor="let tag of project.tagList">
+                {{ tag }}
+              </li>
+            </ul>
+    </div>
 </div>
+
+
+ 

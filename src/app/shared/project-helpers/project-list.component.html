@@ -1,24 +1,22 @@
-<project-preview
-  *ngFor="let project of results"
-  [project]="project">
-</project-preview>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-lg-4" *ngFor="let project of results">
+      <project-preview
+        [project]="project">
+      </project-preview>
+    </div>
+  </div>
+</div>
 
 <div class="project-preview"
   [hidden]="!loading">
-<<<<<<< HEAD:src/app/shared/project-helpers/project-list.component.html
-  Loading projects...
-=======
   Carregando Projetos...
->>>>>>> 3238a29a41f99a4f3c07eecc520c2ffc160d7788:src/app/shared/article-helpers/article-list.component.html
 </div>
 
 <div class="project-preview"
   [hidden]="loading || results.length">
-<<<<<<< HEAD:src/app/shared/project-helpers/project-list.component.html
-  No projects are here... yet.
-=======
   Nenhum projeto cadastrado... ainda.
->>>>>>> 3238a29a41f99a4f3c07eecc520c2ffc160d7788:src/app/shared/article-helpers/article-list.component.html
 </div>
 
 <nav [hidden]="loading || totalPages <= 1">

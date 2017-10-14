@@ -3,6 +3,7 @@ import { Profile } from './profile.model';
 export class Project {
   slug: string;
   title = '';
+  picture = '';
   description = '';
   body = '';
   tagList: Array<string> = [];

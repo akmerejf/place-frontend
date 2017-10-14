@@ -24,6 +24,7 @@ export class EditorComponent implements OnInit {
     // use the FormBuilder to create a form group
     this.projectForm = this.fb.group({
       title: '',
+      image: '',
       description: '',
       body: '',
     });

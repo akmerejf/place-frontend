@@ -6,6 +6,8 @@
         <list-errors [errors]="errors"></list-errors>
 
         <form [formGroup]="projectForm">
+
+          <image-upload formControlName="image"></image-upload>
           <fieldset [disabled]="isSubmitting">
 
             <fieldset class="form-group">

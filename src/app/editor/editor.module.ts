@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 
 import { EditorComponent } from './editor.component';
 import { EditableProjectResolver } from './editable-project-resolver.service';
+import { ImageUploadModule } from "angular2-image-upload";
 import { AuthGuard, SharedModule } from '../shared';
 
 const editorRouting: ModuleWithProviders = RouterModule.forChild([
@@ -24,7 +25,8 @@ const editorRouting: ModuleWithProviders = RouterModule.forChild([
 @NgModule({
   imports: [
     editorRouting,
-    SharedModule
+    SharedModule,
+    ImageUploadModule.forRoot(),
   ],
   declarations: [
     EditorComponent
