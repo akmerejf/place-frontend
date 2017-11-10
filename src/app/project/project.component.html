@@ -2,7 +2,7 @@
 
   <div class="banner">
     <div class="container">
-        <img src="http://localhost:3000{{project.picture}}" class="img-responsive">
+        <img [src]="envPath+project.image.url" class="img-responsive">
       <h1>{{ project.title }}</h1>
 
       <project-meta [project]="project">

@@ -24,7 +24,7 @@ import { ShowAuthedDirective } from './show-authed.directive';
     FavoriteButtonComponent,
     FollowButtonComponent,
     ListErrorsComponent,
-    ShowAuthedDirective
+    ShowAuthedDirective,
   ],
   exports: [
     ProjectListComponent,
@@ -38,7 +38,7 @@ import { ShowAuthedDirective } from './show-authed.directive';
     HttpModule,
     ListErrorsComponent,
     RouterModule,
-    ShowAuthedDirective
+    ShowAuthedDirective,
   ]
 })
 export class SharedModule {}

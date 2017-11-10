@@ -40,15 +40,18 @@ export class ProjectsService {
 
   save(project): Observable<Project> {
     // If we're updating an existing project
+    console.log(project||JSON);
     if (project.slug) {
       return this.apiService.put('/projects/' + project.slug, {project: project})
              .map(data => data.project);
+             
 
     // Otherwise, create a new project
     } else {
       return this.apiService.post('/projects/', {project: project})
              .map(data => data.project);
     }
+    
   }
 
   favorite(slug): Observable<Project> {

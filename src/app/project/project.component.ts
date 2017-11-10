@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import {environment} from '../../environments/environment'
 
 import {
   Project,
@@ -24,6 +25,7 @@ export class ProjectComponent implements OnInit {
   commentFormErrors = {};
   isSubmitting = false;
   isDeleting = false;
+  envPath = environment.image_url;
 
   constructor(
     private route: ActivatedRoute,

@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   listConfig: ProjectListConfig = new ProjectListConfig();
   tags: Array<string> = [];
   tagsLoaded = false;
+  placeLogo: String;
 
   ngOnInit() {
     this.userService.isAuthenticated.subscribe(
@@ -51,4 +52,6 @@ export class HomeComponent implements OnInit {
     // Otherwise, set the list object
     this.listConfig = {type: type, filters: filters};
   }
+
+  
 }

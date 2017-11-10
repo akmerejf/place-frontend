@@ -3,8 +3,8 @@ import { RouterModule } from '@angular/router';
 
 import { EditorComponent } from './editor.component';
 import { EditableProjectResolver } from './editable-project-resolver.service';
-import { ImageUploadModule } from "angular2-image-upload";
 import { AuthGuard, SharedModule } from '../shared';
+import { Decode64Pipe } from './pipes/decode64.pipe';
 
 const editorRouting: ModuleWithProviders = RouterModule.forChild([
   {
@@ -12,6 +12,7 @@ const editorRouting: ModuleWithProviders = RouterModule.forChild([
     component: EditorComponent,
     canActivate: [AuthGuard]
   },
+  
   {
     path: 'editor/:slug',
     component: EditorComponent,
@@ -26,10 +27,11 @@ const editorRouting: ModuleWithProviders = RouterModule.forChild([
   imports: [
     editorRouting,
     SharedModule,
-    ImageUploadModule.forRoot(),
   ],
   declarations: [
-    EditorComponent
+    EditorComponent,
+    Decode64Pipe
+    // ImageUploadComponent
   ],
   providers: [
     EditableProjectResolver

@@ -50,7 +50,7 @@ export class ApiService {
     return this.http.post(
       `${environment.api_url}${path}`,
       JSON.stringify(body),
-      { headers: this.setHeaders() }
+      { headers: this.setHeaders()}
     )
     .catch(this.formatErrors)
     .map((res: Response) => res.json());

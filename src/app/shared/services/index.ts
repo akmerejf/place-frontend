@@ -1,5 +1,6 @@
 export * from './api.service';
 export * from './projects.service';
+export * from './images.service';
 export * from './auth-guard.service';
 export * from './comments.service';
 export * from './jwt.service';
