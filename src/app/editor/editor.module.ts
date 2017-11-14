@@ -6,6 +6,7 @@ import { EditableProjectResolver } from './editable-project-resolver.service';
 import { AuthGuard, SharedModule } from '../shared';
 import { Decode64Pipe } from './pipes/decode64.pipe';
 
+
 const editorRouting: ModuleWithProviders = RouterModule.forChild([
   {
     path: 'editor',
@@ -31,7 +32,6 @@ const editorRouting: ModuleWithProviders = RouterModule.forChild([
   declarations: [
     EditorComponent,
     Decode64Pipe
-    // ImageUploadComponent
   ],
   providers: [
     EditableProjectResolver

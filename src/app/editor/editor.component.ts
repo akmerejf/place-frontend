@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Project, ProjectsService } from '../shared';
+import { Project, ProjectsService, FileUploadComponent, FileService } from '../shared';
 // import { ImageUploadComponent } from './image-upload.component';
 @Component({
   selector: 'editor-page',
@@ -17,6 +17,7 @@ export class EditorComponent implements OnInit {
 
   constructor(
     private projectsService: ProjectsService,
+    
     private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder,
@@ -37,6 +38,7 @@ export class EditorComponent implements OnInit {
       (data: {project: Project}) => {
         if (data.project) {
           this.project = data.project;
+          
           this.projectForm.patchValue(data.project);
          
           // this.project.image = (data.project.image);
@@ -71,7 +73,7 @@ export class EditorComponent implements OnInit {
     this.projectsService
     .save(this.project)
     .subscribe(
-      project => this.router.navigateByUrl('/'),
+      project => this.router.navigateByUrl('/project/'+project.slug),
       err => {
         this.errors = err;
         this.isSubmitting = false;
@@ -84,32 +86,23 @@ export class EditorComponent implements OnInit {
   }
 
   
-files : FileList;
-filestring: string; 
-getFiles(event){
-  if(event){
-    this.files = event.target.files;
-    console.log(this.files);  
-    var reader = new FileReader(); 
-    reader.onload = this._handleReaderLoaded.bind(this); 
-    reader.readAsBinaryString(this.files[0]);
+// files : FileList;
+// filestring: string; 
+// getFiles(event){
+//   if(event){
+//     this.files = event.target.files;
+//     console.log(this.files);  
+//     var reader = new FileReader(); 
+//     reader.onload = this._handleReaderLoaded.bind(this); 
+//     reader.readAsBinaryString(this.files[0]);
     
-  }
-}
-_handleReaderLoaded(readerEvt) { 
-  var binaryString = readerEvt.target.result; 
-  this.project.image = 'data:image/jpeg;base64,'+btoa(binaryString);  // Converting binary string data. 
-} 
+//   }
+// }
+// _handleReaderLoaded(readerEvt) { 
+//   var binaryString = readerEvt.target.result; 
+//   this.project.image = 'data:image/jpeg;base64,'+btoa(binaryString);  // Converting binary string data. 
+// } 
 
-
-
-
-
-/* PARA UPLOAD DE IMAGENS 
-
-  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\////////////////////////////////////////
-
-*/
 
  
   

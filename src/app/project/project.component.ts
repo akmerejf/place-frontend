@@ -9,12 +9,17 @@ import {
   Comment,
   CommentsService,
   User,
-  UserService
+  UserService,
+  FileService,
+  FileUploadComponent,
+  Image
 } from '../shared';
 
 @Component({
   selector: 'project-page',
-  templateUrl: './project.component.html'
+  templateUrl: './project.component.html',
+  styleUrls:['./project.component.css'],
+  providers: [FileService]
 })
 export class ProjectComponent implements OnInit {
   project: Project;
@@ -23,6 +28,8 @@ export class ProjectComponent implements OnInit {
   comments: Comment[];
   commentControl = new FormControl();
   commentFormErrors = {};
+  projectImage: Image = new Image();
+  imageErrors = {};
   isSubmitting = false;
   isDeleting = false;
   envPath = environment.image_url;
@@ -31,6 +38,7 @@ export class ProjectComponent implements OnInit {
     private route: ActivatedRoute,
     private projectsService: ProjectsService,
     private commentsService: CommentsService,
+    private fileService: FileService,
     private router: Router,
     private userService: UserService,
   ) { }
@@ -40,9 +48,10 @@ export class ProjectComponent implements OnInit {
     this.route.data.subscribe(
       (data: { project: Project }) => {
         this.project = data.project;
-
+        this.getImageData(data.project.slug);
         // Load the comments on this project
         this.populateComments();
+
       }
     );
 
@@ -54,6 +63,20 @@ export class ProjectComponent implements OnInit {
         this.canModify = (this.currentUser.username === this.project.author.username);
       }
     );
+  }
+
+  refreshImages(status){
+    if (status == true){
+      
+      this.getImageData(this.project.slug);
+    }
+  }
+  
+  getImageData(slug){
+    this.fileService.getImages(slug).subscribe(       
+      data =>{ this.projectImage = data;},
+      error => this.imageErrors = error
+    )
   }
 
   onToggleFavorite(favorited: boolean) {
@@ -115,4 +138,18 @@ export class ProjectComponent implements OnInit {
       );
   }
 
+  changeBackground(): any{
+    return {
+      
+        'background': 'linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url('+this.envPath+(this.projectImage.url)+') no-repeat',
+        'background-repeat': 'no-repeat',
+        'background-size': 'cover',
+        'background-position':'center center',
+        'color': '#fff',
+        'height': '312px',
+        'width': '820px',
+        
+    
+    };
+  }
 }

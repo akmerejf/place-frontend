@@ -1,9 +1,8 @@
 <div class="project-page">
 
-  <div class="banner">
-    <div class="container">
-        <img [src]="envPath+project.image.url" class="img-responsive">
-      <h1>{{ project.title }}</h1>
+  <div class="banner" >
+    <div class="container" [ngStyle]="changeBackground()">
+      <h1>{{ project.title }}</h1> 
 
       <project-meta [project]="project">
 
@@ -13,11 +12,24 @@
             <i class="ion-edit"></i> Editar Projeto
           </a>
 
+        <app-file-upload 
+          projectId="100" 
+          sectionId="107"
+          [projectSlug]="project.slug"
+          class="btn btn-sm btn-outline-primary" 
+          maxFiles="1"
+          maxSize="2"
+          fileExt="JPG, GIF, PNG"
+          (uploadStatus)="refreshImages($event)" >
+        </app-file-upload> 
+
           <button class="btn btn-sm btn-outline-danger"
             [ngClass]="{disabled: isDeleting}"
             (click)="deleteProject()">
             <i class="ion-trash-a"></i> Deletar Projeto
           </button>
+
+          
         </span>
 
         <span [hidden]="canModify">
@@ -46,7 +58,7 @@
 
         <ul class="tag-list">
           <li *ngFor="let tag of project.tagList"
-            class="tag-default tag-pill tag-outline">
+            class="tag  -default tag-pill tag-outline">
             {{ tag }}
           </li>
         </ul>

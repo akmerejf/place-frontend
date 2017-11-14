@@ -8,6 +8,7 @@ import { ProjectListComponent, ProjectMetaComponent, ProjectPreviewComponent } f
 import { FavoriteButtonComponent, FollowButtonComponent } from './buttons';
 import { ListErrorsComponent } from './list-errors.component';
 import { ShowAuthedDirective } from './show-authed.directive';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { ShowAuthedDirective } from './show-authed.directive';
     FollowButtonComponent,
     ListErrorsComponent,
     ShowAuthedDirective,
+    FileUploadComponent,
   ],
   exports: [
     ProjectListComponent,
@@ -39,6 +41,7 @@ import { ShowAuthedDirective } from './show-authed.directive';
     ListErrorsComponent,
     RouterModule,
     ShowAuthedDirective,
+    FileUploadComponent
   ]
 })
 export class SharedModule {}
