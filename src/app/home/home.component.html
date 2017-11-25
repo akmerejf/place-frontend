@@ -1,32 +1,55 @@
 <div class="home-page">
 
-  <div class="banner" *showAuthed="false">
-    <div class="container">
-      <h1 class="logo-font" style="font-size: 300;">place!</h1>
-      
-      <p>Plataforma Colaborativa de Estimulo à Inovação.</p>
-    </div>
-  </div>
- 
-  <div class="container page">
-      <h1><img [src]="placeLogo"></h1>
+  <div class="background" style="background: url('./assets/images/homewallpaper.jpg') no-repeat center center; background-size: cover;">
     <div class="row">
 
-      <div class="col-md-9">
+      <div class="col-sm-2"></div>  
+      <div class="col-sm-8 text-center ">
+        
+          <h2>Ambiente virtual para divulgar suas ideias, agendar encontros e interagir com outros usuários.</h2>
+
+          <a class="btn" href="#" role="button">Comece já!</a>
+
+      </div>
+      <div class="col-sm-2"></div>
+
+    </div>
+
+  </div>
+
+  <div class="container page">
+    <div class="row">
+
+      <div class="col-md-12">
         <div class="feed-toggle">
           <ul class="nav nav-pills outline-active">
             <li class="nav-item">
-              <a class="nav-link"
-                 [ngClass]="{'active': listConfig.type === 'feed'}"
-                 (click)="setListTo('feed')">
-                 Seu Feed
+              <a data-toggle="tab" data-target="#Vitrine" class="nav-link"
+                 [ngClass]="{'active': listConfig.type === 'Vitrine' && !listConfig.filters.tag}"
+                 (click)="setListTo('Vitrine')">
+                 Vitrine
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link"
-                 [ngClass]="{'active': listConfig.type === 'all' && !listConfig.filters.tag}"
-                 (click)="setListTo('all')">
-                 Feed Global
+              <a data-toggle="tab" data-target="#Eventos" class="nav-link"
+                 routerLinkActive='nav-link'
+                 [ngClass]="{'active': listConfig.type === 'Eventos' && !listConfig.filters.tag}"
+                 (click)="setListTo('Eventos')">
+                 Eventos
+              </a>
+            </li>
+            <li class="nav-item">
+              <a data-toggle="tab" data-target="#Fomento" class="nav-link"
+                 [ngClass]="{'active': listConfig.type === 'Fomento' && !listConfig.filters.tag}"
+                 (click)="setListTo('Fomento')">
+                 Fomento
+              </a>
+            </li>
+            <li class="nav-item">
+              <a data-toggle="tab" data-target="#Network" class="nav-link"
+                 [ngClass]="{'active': listConfig.type === 'Network' && !listConfig.filters.tag}"
+                 (click)="setListTo('Network')">
+                 Network
               </a>
             </li>
             <li class="nav-item" [hidden]="!listConfig.filters.tag">
@@ -36,31 +59,138 @@
             </li>
           </ul>
         </div>
-        <project-list [limit]="10" [config]="listConfig"></project-list>
-      </div>
 
-      <div class="col-md-3">
-        <div class="sidebar">
-          <p>Tags Populares</p>
+        <div class="tab-content">
 
-          <div class="tag-list">
-            <a href="#"
-               *ngFor="let tag of tags"
-               (click)="setListTo('all', {tag: tag})"
-               class="tag-default tag-pill">
-               {{ tag }}
-            </a>
+        <br>
+
+          <div id="Vitrine" class="tab-pane fade in active">
+
+            <project-list [limit]="10" [config]="listConfig"></project-list>
+
+            <br>
+            <div class="row">
+
+              <div class="col-sm-1"></div>
+              <div class="col-sm-10">
+                <div class="sidebar text-center">
+                  <p>Tags Populares</p>
+
+                  <div class="tag-list">
+                    <a href="#"
+                       *ngFor="let tag of tags"
+                       (click)="setListTo('all', {tag: tag})"
+                       class="tag-default tag-pill">
+                       {{ tag }}
+                    </a>
+                  </div>
+
+                  <div [hidden]="tagsLoaded">
+                    Carregando tags...
+                  </div>
+
+                  <div [hidden]="!tagsLoaded || tags.length">
+                    Nenhuma tag cadastrada... ainda.
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-1"></div>
+
+            </div>
+
           </div>
 
-          <div [hidden]="tagsLoaded">
-            Carregando tags...
+          <div id="Eventos" class="tab-pane fade">
+            
+            <div class="container">
+              <div class="row">
+
+                <div class="col-sm-6 col-md-4 col-lg-4 text-center">
+                  <div class="service-box mt-5 mx-auto">
+                    <i class="fa fa-5x fa-comments text-primary mb-3 sr-icons"></i>
+                    <br><br>
+                    <h3 class="mb-3">Meetup</h3>
+                    <p class="text-muted mb-0">Marcar e divulgar encontros ou reuniões informais, estimulando o networking.</p>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 col-lg-4 text-center">
+                  <div class="service-box mt-5 mx-auto">
+                    <i class="fa fa-5x fa-users text-primary mb-3 sr-icons"></i>
+                    <br><br>
+                    <h3 class="mb-3">Hackathon</h3>
+                    <p class="text-muted mb-0">Reunir diversos profissionais para uma maratona, cujo objetivo é desenvolver projetos livres que sejam inovadores e utilizáveis.</p>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 col-lg-4 text-center">
+                  <div class="service-box mt-5 mx-auto">
+                    <i class="fa fa-5x fa-handshake-o text-primary mb-3 sr-icons"></i>
+                    <br><br>
+                    <h3 class="mb-3">Bootcamp</h3>
+                    <p class="text-muted mb-0">Divulgar eventos rápidos que promovem uma formação intensiva e oferecem à iniciativas de Empreendedorismo Social.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
           </div>
 
-          <div [hidden]="!tagsLoaded || tags.length">
-            Nenhuma tag cadastrada... ainda.
+          <div id="Fomento" class="tab-pane fade">
+
+            <div class="container">
+              <div class="row">
+
+                <div class="col-sm-2">
+                </div>
+
+                <div class="col-sm-8 text-center">
+                  <div class="service-box mt-5 mx-auto">
+                    <i class="fa fa-5x fa-usd text-primary mb-3 sr-icons"></i>
+                    <br><br>
+                    <h3 class="mb-3">Crowdfunding</h3>
+                    <p class="text-muted mb-0">Apoiar a prática de financiamento coletivo, modalidade de investimento onde várias pessoas podem investem no seu negócio, a fim de dar vida à sua idéia.</p>
+                  </div>
+                </div>
+
+                <div class="col-sm-2">
+                </div>
+
+              </div>
+            </div>
+
           </div>
+
+          <div id="Network" class="tab-pane fade">
+            
+            <div class="container">
+              <div class="row">
+
+                <div class="col-sm-2">
+                </div>
+
+                <div class="col-sm-8 text-center">
+                  <div class="service-box mt-5 mx-auto">
+                    <i class="fa fa-5x fa-sitemap text-primary mb-3 sr-icons"></i>
+                    <br><br>
+                    <h3 class="mb-3">Mentoria</h3>
+                    <p class="text-muted mb-0">Promover encontros entre empreendedores, mentores, parceiros e investidores, com o objetivo de fomentar e evoluir ideis, projetos e produtos, através de atividades de avaliação.</p>
+                  </div>
+                </div>
+
+                <div class="col-sm-2">
+                </div>
+
+              </div>
+            </div>  
+
+          </div>
+
         </div>
+        
       </div>
+
     </div>
   </div>
 </div>

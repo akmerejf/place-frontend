@@ -1,6 +1,7 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
+import { CarouselModule } from 'angular4-carousel';
 import { HomeComponent } from './home.component';
 import { HomeAuthResolver } from './home-auth-resolver.service';
 import { SharedModule } from '../shared';
@@ -18,7 +19,8 @@ const homeRouting: ModuleWithProviders = RouterModule.forChild([
 @NgModule({
   imports: [
     homeRouting,
-    SharedModule
+    SharedModule,
+    CarouselModule
   ],
   declarations: [
     HomeComponent
