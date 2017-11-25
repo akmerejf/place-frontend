@@ -1,13 +1,19 @@
 <div class="home-page">
 
-  <div class="banner" *showAuthed="false">
+<!--   <div class="banner" *showAuthed="false">
     <div class="container">
       <h1 class="logo-font" style="font-size: 300;">place!</h1>
       
       <p>Plataforma Colaborativa de Estimulo à Inovação.</p>
     </div>
-  </div>
+
+  </div> -->
  
+ <!-- CAROUSEL -->
+ <div style="width: relative; height: 400px">
+  <carousel [sources]="imageSources" [config]="config"></carousel>
+</div>
+
   <div class="container page">
       <h1><img [src]="placeLogo"></h1>
     <div class="row">
