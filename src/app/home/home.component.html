@@ -1,38 +1,50 @@
 <div class="home-page">
 
-<!--   <div class="banner" *showAuthed="false">
+<!--   <div class="banner">
     <div class="container">
-      <h1 class="logo-font" style="font-size: 300;">place!</h1>
-      
+            
       <p>Plataforma Colaborativa de Estimulo à Inovação.</p>
     </div>
 
-  </div> -->
- 
+  </div> 
  <!-- CAROUSEL -->
  <div style="width: relative; height: 400px">
   <carousel [sources]="imageSources" [config]="config"></carousel>
 </div>
 
   <div class="container page">
-      <h1><img [src]="placeLogo"></h1>
     <div class="row">
 
-      <div class="col-md-9">
+      <div class="col-md-10">
         <div class="feed-toggle">
           <ul class="nav nav-pills outline-active">
             <li class="nav-item">
-              <a class="nav-link"
-                 [ngClass]="{'active': listConfig.type === 'feed'}"
-                 (click)="setListTo('feed')">
-                 Seu Feed
+              <a data-toggle="tab" data-target="#Vitrine" class="nav-link"
+                 [ngClass]="{'active': listConfig.type === 'Vitrine' && !listConfig.filters.tag}"
+                 (click)="setListTo('Vitrine')">
+                 Vitrine
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link"
-                 [ngClass]="{'active': listConfig.type === 'all' && !listConfig.filters.tag}"
-                 (click)="setListTo('all')">
-                 Feed Global
+              <a data-toggle="tab" data-target="#Eventos" class="nav-link"
+                 routerLinkActive='nav-link'
+                 [ngClass]="{'active': listConfig.type === 'Eventos' && !listConfig.filters.tag}"
+                 (click)="setListTo('Eventos')">
+                 Eventos
+              </a>
+            </li>
+            <li class="nav-item">
+              <a data-toggle="tab" data-target="#Fomento" class="nav-link"
+                 [ngClass]="{'active': listConfig.type === 'Fomento' && !listConfig.filters.tag}"
+                 (click)="setListTo('Fomento')">
+                 Fomento
+              </a>
+            </li>
+            <li class="nav-item">
+              <a data-toggle="tab" data-target="#Network" class="nav-link"
+                 [ngClass]="{'active': listConfig.type === 'Network' && !listConfig.filters.tag}"
+                 (click)="setListTo('Network')">
+                 Network
               </a>
             </li>
             <li class="nav-item" [hidden]="!listConfig.filters.tag">
@@ -42,10 +54,65 @@
             </li>
           </ul>
         </div>
-        <project-list [limit]="10" [config]="listConfig"></project-list>
+
+        <div class="tab-content">
+
+          <div id="Vitrine" class="tab-pane fade in active">
+            <project-list [limit]="10" [config]="listConfig"></project-list>
+          </div>
+
+          <div id="Eventos" class="tab-pane fade">
+
+            <br>
+            
+            <div class="container">
+              <div class="row">
+
+                <div class="col-sm-6 col-md-4 col-lg-4 text-center">
+                  <div class="service-box mt-5 mx-auto">
+                    <i class="fa fa-4x fa-comments text-primary mb-3 sr-icons"></i>
+                    <br><br>
+                    <h3 class="mb-3">Meetup</h3>
+                    <p class="text-muted mb-0">Marcar e divulgar encontros ou reuniões informais, estimulando o networking.</p>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 col-lg-4 text-center">
+                  <div class="service-box mt-5 mx-auto">
+                    <i class="fa fa-4x fa-users text-primary mb-3 sr-icons"></i>
+                    <br><br>
+                    <h3 class="mb-3">Hackathon</h3>
+                    <p class="text-muted mb-0">Reunir diversos profissionais para uma maratona, cujo objetivo é desenvolver projetos livres que sejam inovadores e utilizáveis.</p>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 col-lg-4 text-center">
+                  <div class="service-box mt-5 mx-auto">
+                    <i class="fa fa-4x fa-handshake-o text-primary mb-3 sr-icons"></i>
+                    <br><br>
+                    <h3 class="mb-3">Bootcamp</h3>
+                    <p class="text-muted mb-0">Divulgar eventos rápidos que promovem uma formação intensiva e oferecem à iniciativas de Empreendedorismo Social.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <div id="Fomento" class="tab-pane fade">
+            Fomento
+          </div>
+
+          <div id="Network" class="tab-pane fade">
+            Network
+          </div>
+
+        </div>
+        
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-2">
         <div class="sidebar">
           <p>Tags Populares</p>
 

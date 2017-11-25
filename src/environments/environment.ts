@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  api_url: 'http://localhost:3000/api',
-  image_url: 'http://localhost:3000'
+  api_url: 'http://104.236.7.68:8000/api',
+  image_url: 'http://104.236.7.68:8000/'
 };

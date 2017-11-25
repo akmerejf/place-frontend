@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
   tags: Array<string> = [];
   tagsLoaded = false;
   placeLogo: String;
-
+  currentList: string = "Vitrine";
   ngOnInit() {
     this.userService.isAuthenticated.subscribe(
       (authenticated) => {
@@ -46,9 +46,28 @@ export class HomeComponent implements OnInit {
 
         // set the project list accordingly
         if (authenticated) {
-          this.setListTo('feed');
+
+          switch (this.currentList) {
+
+            case "Eventos":
+              this.setListTo('Eventos');
+              break;
+
+            case "Fomento":
+              this.setListTo('Fomento');
+              break;
+
+            case "Network":
+              this.setListTo('Network');
+              break;
+            
+            default:
+              this.setListTo('Vitrine');
+              break;
+          }
+
         } else {
-          this.setListTo('all');
+          this.setListTo('Vitrine');
         }
       }
     );
@@ -59,13 +78,14 @@ export class HomeComponent implements OnInit {
       this.tagsLoaded = true;
     });
   }
+  
 
   setListTo(type: string = '', filters: Object = {}) {
     // If feed is requested but user is not authenticated, redirect to login
-    if (type === 'feed' && !this.isAuthenticated) {
-      this.router.navigateByUrl('/login');
-      return;
-    }
+    // if (type === 'Eventos' && !this.isAuthenticated) {
+    //   this.router.navigateByUrl('/login');
+    //   return;
+    // }
 
     // Otherwise, set the list object
     this.listConfig = {type: type, filters: filters};
