@@ -14,6 +14,10 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   currentUser: User;
+  isScrolled = false;
+  currPos: Number = 0;
+  startPos: Number = 0;
+  changePos: Number = 100; 
 
   ngOnInit() {
     this.userService.currentUser.subscribe(
@@ -21,5 +25,14 @@ export class HeaderComponent implements OnInit {
         this.currentUser = userData;
       }
     )
+  }
+
+  updateHeader(evt) {
+    this.currPos = (window.pageYOffset || evt.target.scrollTop) - (evt.target.clientTop || 0);
+    if(this.currPos >= this.changePos ) {
+        this.isScrolled = true;
+    } else {
+        this.isScrolled = false;
+    }
   }
 }
