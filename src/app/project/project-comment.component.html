@@ -1,22 +1,43 @@
 <div class="card">
+
   <div class="card-block">
     <p class="card-text">
       {{ comment.body }}
     </p>
   </div>
+
   <div class="card-footer">
-    <a class="comment-author" [routerLink]="['/profile', comment.author.username]">
-      <img [src]="comment.author.image" class="comment-author-img" />
-    </a>
-    &nbsp;
-    <a class="comment-author" [routerLink]="['/profile', comment.author.username]">
-      {{ comment.author.username }}
-    </a>
-    <span class="date-posted">
-      {{ comment.createdAt | date: 'longDate' }}
-    </span>
-    <span class="mod-options" [hidden]="!canModify">
-      <i class="ion-trash-a" (click)="deleteClicked()"></i>
-    </span>
+
+    <div class="row">
+
+      <div class="col-sm-2">
+
+        <a class="comment-author" [routerLink]="['/profile', comment.author.username]">
+          <img [src]="comment.author.image" class="comment-author-img img-responsive img-circle" width="50" height="50"/>
+        </a>
+
+      </div>
+
+      <div class="col-sm-10">
+
+        <a class="comment-author" [routerLink]="['/profile', comment.author.username]">
+          {{ comment.author.username }}
+        </a>
+
+        <br>
+
+        <span class="date-posted">
+          {{ comment.createdAt | date: 'longDate' }}
+        </span>
+        
+        <span class="mod-options" [hidden]="!canModify">
+          <i class="ion-trash-a" (click)="deleteClicked()"></i>
+        </span>
+
+      </div>
+
+    </div>
+
   </div>
+
 </div>

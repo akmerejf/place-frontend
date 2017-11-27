@@ -4,7 +4,8 @@ import { Comment, User, UserService } from '../shared';
 
 @Component({
   selector: 'project-comment',
-  templateUrl: './project-comment.component.html'
+  templateUrl: './project-comment.component.html',
+  styleUrls:['./project-comment.component.css'],
 })
 export class ProjectCommentComponent implements OnInit {
   constructor(
