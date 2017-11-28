@@ -91,8 +91,15 @@
 
 }
 
+.nav-link:hover{
+
+	color: #5CB85C;
+	transition: all .4s ease;
+}
+
 .navbar-brand {
    
-  color: black !important; 
+    color: black !important; 
+    font-style: italic;
 }
 

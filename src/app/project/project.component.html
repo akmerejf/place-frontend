@@ -2,144 +2,143 @@
 
 <div class="project-page container">
 
-  <div class="banner" >
-    <div class="container" [ngStyle]="changeBackground()">
-      <h1>{{ project.title }}</h1> 
+  <br><br><br><br>
+     
+  <div class="container">
 
-      <project-meta [project]="project">
+    <div class="row">
 
-          <span [hidden]="!canModify">
-          <a class="btn btn-sm btn-outline-secondary"
-             [routerLink]="['/editor', project.slug]">
-            <i class="ion-edit"></i> Editar Projeto
-          </a>
+      <div class="col-sm-12 col-md-6">
 
-        <app-file-upload 
-          projectId="100" 
-          sectionId="107"
-          [projectSlug]="project.slug"
-          class="btn btn-sm btn-outline-primary" 
-          maxFiles="1"
-          maxSize="2"
-          fileExt="JPG, GIF, PNG"
-          (uploadStatus)="refreshImages($event)" >
-        </app-file-upload> 
+        <div class="background" [ngStyle]="changeBackground()"></div>
 
-          <button class="btn btn-sm btn-outline-danger"
-            [ngClass]="{disabled: isDeleting}"
-            (click)="deleteProject()">
-            <i class="ion-trash-a"></i> Deletar Projeto
-          </button>
-
-          
-        </span>
-
-        <span [hidden]="canModify">
-          <follow-button
-            [profile]="project.author"
-            (onToggle)="onToggleFollowing($event)">
-          </follow-button>
-
-          <favorite-button
-            [project]="project"
-            (onToggle)="onToggleFavorite($event)">
-            {{ project.favorited ? 'Unfavorite' : 'Favorite' }} Projeto <span class="counter">({{ project.favoritesCount }})</span>
-          </favorite-button>
-        </span>
-
-      </project-meta>
-    </div>
-  </div>
-
-  <div class="container page">
-
-    <div class="row project-content">
-      <div class="col-md-12">
-
-        <div [innerHTML]="project.body | markdown"></div>
-
+        <br>
+        
         <ul class="tag-list">
-          <li *ngFor="let tag of project.tagList"
-            class="tag  -default tag-pill tag-outline">
+          <li class="tag-default tag-pill tag-outline"
+            *ngFor="let tag of project.tagList">
             {{ tag }}
           </li>
         </ul>
-
+        
       </div>
-    </div>
 
-    <hr />
+      <div class="col-sm-12 col-md-6">
 
-    <div class="project-actions">
-      <project-meta [project]="project">
+        <project-meta [project]="project">
 
+          <!--Funções caso seja proprio projeto-->
           <span [hidden]="!canModify">
-          <a class="btn btn-sm btn-outline-secondary"
-             [routerLink]="['/editor', project.slug]">
-            <i class="ion-edit"></i> Editar Projeto
-          </a>
+          
+            <a class="btn btn-sm btn-outline-secondary"
+               [routerLink]="['/editor', project.slug]">
+              <i class="ion-edit"></i> Editar Projeto
+            </a>
 
-          <button class="btn btn-sm btn-outline-danger"
-            [ngClass]="{disabled: isDeleting}"
-            (click)="deleteProject()">
-            <i class="ion-trash-a"></i> Deletar Projeto
-          </button>
-        </span>
+            <app-file-upload 
+              projectId="100" 
+              sectionId="107"
+              [projectSlug]="project.slug"
+              class="btn btn-sm btn-outline-primary" 
+              maxFiles="1"
+              maxSize="2"
+              fileExt="JPG, GIF, PNG"
+              (uploadStatus)="refreshImages($event)" >
+            </app-file-upload> 
 
-        <span [hidden]="canModify">
-          <follow-button
-            [profile]="project.author"
-            (onToggle)="onToggleFollowing($event)">
-          </follow-button>
+            <button class="btn btn-sm btn-outline-danger"
+              [ngClass]="{disabled: isDeleting}"
+              (click)="deleteProject()">
+              <i class="ion-trash-a"></i> Deletar Projeto
+            </button>
 
-          <favorite-button
-            [project]="project"
-            (onToggle)="onToggleFavorite($event)">
-            {{ project.favorited ? 'Unfavorite' : 'Favorite' }} Projeto <span class="counter">({{ project.favoritesCount }})</span>
-          </favorite-button>
-        </span>
+            
+          </span>
 
-      </project-meta>
-    </div>
 
-    <div class="row">
-      <div class="col-xs-12 col-md-8 offset-md-2">
+          <!-- SEGUIR E FAVORITAR-->
+          <span [hidden]="canModify">
+            <follow-button
+              [profile]="project.author"
+              (onToggle)="onToggleFollowing($event)">
+            </follow-button>
 
-        <div *showAuthed="true">
-          <list-errors [errors]="commentFormErrors"></list-errors>
-          <form class="card comment-form" (ngSubmit)="addComment()">
-            <fieldset [disabled]="isSubmitting">
-              <div class="card-block">
-                <textarea class="form-control"
-                  placeholder="Write a comment..."
-                  rows="3"
-                  [formControl]="commentControl"
-                ></textarea>
-              </div>
-              <div class="card-footer">
-                <img [src]="currentUser.image" class="comment-author-img" />
-                <button class="btn btn-sm btn-primary" type="submit">
-                 Deixar Comentário
-                </button>
-              </div>
-            </fieldset>
-          </form>
-        </div>
+            <favorite-button
+              [project]="project"
+              (onToggle)="onToggleFavorite($event)">
+              {{ project.favorited ? 'Desfavoritar' : 'Favoritar' }} Projeto <span class="counter">({{ project.favoritesCount }})</span>
+            </favorite-button>
+          </span>
 
-        <div *showAuthed="false">
-          <a [routerLink]="['/login']">Entre</a> ou <a [routerLink]="['/register']">cadastre-se</a> para comentar neste projeto.
-        </div>
+        </project-meta>
 
-        <project-comment
-          *ngFor="let comment of comments"
-          [comment]="comment"
-          (deleteComment)="onDeleteComment(comment)">
-        </project-comment>
+        <br>
 
+        <!-- DESCRIÇAO PROJETO-->
+        <div [innerHTML]="project.body | markdown"></div>
+
+          <div *showAuthed="false">
+
+            <a [routerLink]="['/login']">Entre</a> ou <a [routerLink]="['/register']">cadastre-se</a> para comentar neste projeto.
+
+          </div>
+        
       </div>
+
     </div>
+    
+  </div>
+  
+  <div class="container">
+
+    <hr/>
+
+    <!-- BARRA DE COMENTARIO -->
+    <div *showAuthed="true">
+
+      <list-errors [errors]="commentFormErrors"></list-errors>
+
+      <form class="card comment-form" (ngSubmit)="addComment()">
+
+        <fieldset [disabled]="isSubmitting">
+
+          <div class="card-block">
+            <textarea class="form-control"
+              placeholder="Write a comment..."
+              rows="3"
+              [formControl]="commentControl"
+            ></textarea>
+          </div>
+
+        </fieldset>
+
+      </form>
+
+    </div>
+
+    <!-- DEIXAR COMENTARIO -->
+    <div *showAuthed="true" class="card-footer">
+
+      <img [src]="currentUser.image" class="comment-author-img img-responsive img-circle" width="50" height="50" />
+
+      <button class="btn btn-sm btn-primary" type="submit">
+       Deixar Comentário
+      </button>
+
+    </div>
+
+    <br>
+
+    <!-- COMENTARIOS -->
+    <project-comment
+      *ngFor="let comment of comments"
+      [comment]="comment"
+      (deleteComment)="onDeleteComment(comment)">
+      
+    </project-comment>
 
   </div>
+
 </div>
 <app-aside-buttons>
 

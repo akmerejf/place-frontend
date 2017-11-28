@@ -6,7 +6,8 @@ import { ProfilesService, UserService } from '../services';
 
 @Component({
   selector: 'follow-button',
-  templateUrl: './follow-button.component.html'
+  templateUrl: './follow-button.component.html',
+  styleUrls:['./follow-button.component.css'],
 })
 export class FollowButtonComponent {
   constructor(

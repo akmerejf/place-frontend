@@ -1,23 +1,43 @@
 <div class="project-meta">
-  <figure class="profile profile-inline">
-    <a [routerLink]="['/profile', project.author.username]">
-      <img class="card-img-top" [src]="project.author.image" />
-    </a>
-    
-  </figure>
-  <a class="author"
-  [routerLink]="['/profile', project.author.username]">
-  {{ project.author.username }}
-  </a>
 
-  <div class="card-block">
-    <div class="info">
-      
-      <span class="date">
-        {{ project.createdAt | date: 'longDate' }}
-      </span>
+  <div class="info">
+    
+    <span class="date">
+      {{ project.createdAt | date: 'longDate' }}
+    </span>
+  </div>  
+
+  <h1>{{ project.title }}</h1>
+
+  <div class="row text-center">
+
+    <div class="col-sm-2">
+
+      <figure class="profile profile-inline">
+
+        <a [routerLink]="['/profile', project.author.username]">
+
+          <img class="bg img-responsive img-circle" [src]="project.author.image" />
+
+        </a>
+        
+      </figure>
+
     </div>
+
+    <div class="col-sm-10">
+
+      <a class="author"
+      [routerLink]="['/profile', project.author.username]">
+      {{ project.author.username }}
+      </a>
+
+    </div>
+
   </div>
 
+  <hr/>
+
   <ng-content></ng-content>
+
 </div>

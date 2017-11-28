@@ -1,0 +1,10 @@
+.ion-trash-a{
+	
+	cursor: pointer;
+	color: red;
+}
+
+.col-sm-2 {
+	
+    max-width: 12%;
+}

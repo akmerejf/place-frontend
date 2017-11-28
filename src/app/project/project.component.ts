@@ -140,16 +140,10 @@ export class ProjectComponent implements OnInit {
 
   changeBackground(): any{
     return {
-      
-        'background': 'linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url('+this.envPath+(this.projectImage.url)+') no-repeat',
-        'background-repeat': 'no-repeat',
-        'background-size': 'cover',
-        'background-position':'center center',
-        'color': '#fff',
-        'height': '312px',
-        'width': '820px',
         
-    
+        'background': 'url('+this.envPath+(this.projectImage.url)+') no-repeat',
+        
     };
   }
+
 }

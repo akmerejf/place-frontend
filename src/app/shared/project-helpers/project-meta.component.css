@@ -1,0 +1,14 @@
+.bg{
+	width: 50px !important;
+	height: 50px !important;
+}
+
+.col-sm-2 {
+	
+    max-width: 12%;
+}
+
+.text-center{
+
+    align-items: center;
+}
