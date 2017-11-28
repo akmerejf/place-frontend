@@ -12,7 +12,7 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 import { AsideComponent } from './layout/aside/aside.component';
 import { AsideButtonsComponent } from './project-helpers/aside-buttons/aside-buttons.component';
 import { FacebookButtonComponent } from './buttons/facebook-button/facebook-button.component';
-
+import { CeiboShare } from 'ng2-social-share';
 @NgModule({
   imports: [
     CommonModule,
@@ -33,6 +33,7 @@ import { FacebookButtonComponent } from './buttons/facebook-button/facebook-butt
     AsideComponent,
     AsideButtonsComponent,
     FacebookButtonComponent,
+    CeiboShare
   ],
   exports: [
     ProjectListComponent,

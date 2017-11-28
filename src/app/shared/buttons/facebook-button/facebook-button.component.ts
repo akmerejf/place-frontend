@@ -17,6 +17,7 @@ export class FacebookButtonComponent {
   @Input() btnClass:string;
   @Input() project: Project;
   @Output() onToggle = new EventEmitter<boolean>();
+  public repoUrl:string;
   isSubmitting = false;
 
   toggleFavorite() {

@@ -13,13 +13,17 @@ export class FavoriteButtonComponent {
   constructor(
     private projectsService: ProjectsService,
     private router: Router,
-    private userService: UserService
-  ) {}
+    private userService: UserService,
+  ) { 
+   
+   
+   
+  }
 
   @Input() project: Project;
   @Output() onToggle = new EventEmitter<boolean>();
   isSubmitting = false;
-
+  
   toggleFavorite() {
     this.isSubmitting = true;
 
@@ -28,6 +32,7 @@ export class FavoriteButtonComponent {
         // Not authenticated? Push to login screen
         if (!authenticated) {
           this.router.navigateByUrl('/login');
+          
           return;
         }
 
