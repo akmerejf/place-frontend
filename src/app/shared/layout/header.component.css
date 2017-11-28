@@ -4,8 +4,8 @@
     background: transparent;
     border-radius: 0;
     width: 100%;
-    border: none !important;
-    box-shadow: none !important;
+    
+    /* box-shadow: none !important; */
   }
   @media only screen and (min-width: 767px) {
     .my-header {
@@ -20,6 +20,7 @@
     font-weight: 100;
     float: left;
     margin-left: 6px;
+    
   }
   .my-header .title .title1 {
     color: #e4e4e4;
@@ -70,17 +71,28 @@
 .navbar{
 
 	z-index: 1000;
-	background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.3);
+  
+  
+}
+.navbar-fixed-top{
+  border-bottom: 1px solid !important;
+ 
+  /* border-radius: 10px !important; */
+  border-color: lightgray !important;
+  -webkit-background-clip: padding-box !important; /* for Safari */
+  background-clip: padding-box !important; /* for IE9+, Firefox 4+, Opera, Chrome */
+ 
 }
 
 .nav-link{
 
-	color: #fff;
+	color: black !important; 
 
 }
 
 .navbar-brand {
    
-    color: #fff !important;
+  color: black !important; 
 }
 

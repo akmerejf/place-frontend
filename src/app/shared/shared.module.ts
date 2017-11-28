@@ -9,6 +9,9 @@ import { FavoriteButtonComponent, FollowButtonComponent } from './buttons';
 import { ListErrorsComponent } from './list-errors.component';
 import { ShowAuthedDirective } from './show-authed.directive';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import { AsideComponent } from './layout/aside/aside.component';
+import { AsideButtonsComponent } from './project-helpers/aside-buttons/aside-buttons.component';
+import { FacebookButtonComponent } from './buttons/facebook-button/facebook-button.component';
 
 @NgModule({
   imports: [
@@ -27,6 +30,9 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     ListErrorsComponent,
     ShowAuthedDirective,
     FileUploadComponent,
+    AsideComponent,
+    AsideButtonsComponent,
+    FacebookButtonComponent,
   ],
   exports: [
     ProjectListComponent,
@@ -41,7 +47,10 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     ListErrorsComponent,
     RouterModule,
     ShowAuthedDirective,
-    FileUploadComponent
+    FileUploadComponent,
+    AsideComponent,
+    AsideButtonsComponent,
+    FacebookButtonComponent
   ]
 })
 export class SharedModule {}
