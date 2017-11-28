@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 import { User } from '../models';
 import { UserService } from '../services';
@@ -6,7 +6,11 @@ import { UserService } from '../services';
 @Component({
   selector: 'layout-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '(window:scroll)': 'updateHeader($event)'
+  }
 })
 export class HeaderComponent implements OnInit {
   constructor(
@@ -28,11 +32,11 @@ export class HeaderComponent implements OnInit {
   }
 
   updateHeader(evt) {
-    this.currPos = (window.pageYOffset || evt.target.scrollTop) - (evt.target.clientTop || 0);
+    this.currPos = (window.pageYOffset || evt.target.scrollTop) - (evt.target.clientTop || -50);
     if(this.currPos >= this.changePos ) {
         this.isScrolled = true;
     } else {
         this.isScrolled = false;
     }
-  }
+}
 }

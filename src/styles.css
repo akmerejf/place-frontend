@@ -1,0 +1,13 @@
+.background-img{
+	position: relative;
+	width: 100%;
+	height: 400px;
+	color: #fff;
+}
+
+.background-img-menor{
+	position: relative;
+	width: 100%;
+	height: 3.4em;
+	color: #fff;
+}

@@ -1,7 +1,14 @@
-<div class="ui fixed menu my-header" [ngClass]= "{'page-scroll-header': isScrolled}">
-  <nav class="navbar navbar-fixed-top">
+
+  <nav class="navbar navbar-fixed-top my-header" [ngClass]= "{'page-scroll-header': isScrolled}">
     <div class="container">
-      <a class="navbar-brand" routerLink="/">place!</a>
+      <a class="item" [routerLink]="['/']">
+        
+        <!-- <img class="logo" src="assets/images/logo.png"> -->
+        <div class="title">
+          <div class="title1">place!</div>
+        </div>
+      </a>
+     
 
       <!-- Show this for logged out users -->
       <ul *showAuthed="false"
@@ -74,4 +81,3 @@
 
     </div>
   </nav>
-</div>

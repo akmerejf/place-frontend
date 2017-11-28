@@ -1,105 +1,67 @@
-
 .my-header {
-    transition: background-color 500ms ease-out;
-    background: transparent;
-    border-radius: 0;
-    width: 100%;
-    
-    /* box-shadow: none !important; */
-  }
-  @media only screen and (min-width: 767px) {
-    .my-header {
-      padding: 0 5rem;
-    }
-  }
-  .my-header a, .my-header a:hover {
-    color: white;
-  }
-  .my-header .title {
-    font-size: 1.5rem;
-    font-weight: 100;
-    float: left;
-    margin-left: 6px;
-    
-  }
-  .my-header .title .title1 {
-    color: #e4e4e4;
-    float: left;
-  }
-  .my-header .title .title2 {
-    color: #e4e4e4;
-    float: left;
-  }
-  .my-header .search {
-    color: white;
-  }
-  .my-header .search .input {
-    background: transparent;
-    color: white;
-  }
-  .my-header .search .input .prompt {
-    background: transparent;
-    border: 1px solid green;
-    border-radius: 6px;
-    color: white;
-  }
-  .my-header .travel {
-    color: #11e18b;
-  }
-  .my-header .logo {
-    width: 2rem !important;
-    margin-right: 0.5rem !important;
-  }
-  .my-header .item::before {
-    background: none !important;
-  }
-  .page-scroll-header {
-    background-color: #fafafa !important;
-    color: #323232 !important;
-    border-bottom: 1px solid #e78b90 !important;
-  }
-  .page-scroll-header .item.login {
-    color: #323232 !important;
-  }
-  .page-scroll-header .title1, .page-scroll-header .title2 {
-    color: #323232 !important;
-  }
-  .avatar {
-    border: 2px solid #e78b90;
-  }
-  
-.navbar{
-
-	z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.3);
-  
-  
+  transition: background-color 500ms ease-out;
+  background: transparent;
+  border-radius: 0;
+  width: 100%;
+  border: none !important;
+  box-shadow: none !important;
 }
-.navbar-fixed-top{
-  border-bottom: 1px solid !important;
- 
-  /* border-radius: 10px !important; */
-  border-color: lightgray !important;
-  -webkit-background-clip: padding-box !important; /* for Safari */
-  background-clip: padding-box !important; /* for IE9+, Firefox 4+, Opera, Chrome */
- 
+@media only screen and (min-width: 767px) {
+  .my-header {
+    padding: .5rem 5rem;
+  }
 }
-
-.nav-link{
-
-	color: black !important; 
-
+.my-header a, .my-header a:hover {
+  color: white;
 }
-
-.nav-link:hover{
-
-	color: #5CB85C;
-	transition: all .4s ease;
+.my-header .title {
+  font-size: 1.5rem;
+  font-weight: 100;
+  float: left;
+  margin-left: 6px;
 }
-
-.navbar-brand {
-   
-    color: black !important; 
-    font-style: italic;
+.my-header .title .title1 {
+  color: #e4e4e4;
+  float: left;
 }
-
+.my-header .title .title2 {
+  color: #e4e4e4;
+  float: left;
+}
+.my-header .search {
+  color: white;
+}
+.my-header .search .input {
+  background: transparent;
+  color: white;
+}
+.my-header .search .input .prompt {
+  background: transparent;
+  border: 1px solid green;
+  border-radius: 6px;
+  color: white;
+}
+.my-header .travel {
+  color: #11e18b;
+}
+.my-header .logo {
+  width: 2rem !important;
+  margin-right: 0.5rem !important;
+}
+.my-header .item::before {
+  background: none !important;
+}
+.page-scroll-header {
+  background-color: #fafafa !important;
+  color: gray !important;
+  border-bottom: .5px solid lightgrey !important;
+}
+.page-scroll-header .item.login {
+  color: #323232 !important;
+}
+.page-scroll-header .title1, .page-scroll-header .nav-link {
+  color: #323232 !important;
+}
+.avatar {
+  border: 2px solid #e78b90;
+}
