@@ -104,7 +104,7 @@
 
           <div class="card-block">
             <textarea class="form-control"
-              placeholder="Write a comment..."
+              placeholder="Deixe um comentário..."
               rows="3"
               [formControl]="commentControl"
             ></textarea>
@@ -112,20 +112,22 @@
 
         </fieldset>
 
+         <!-- DEIXAR COMENTARIO -->
+        <div *showAuthed="true" class="card-footer">
+        
+          <img [src]="currentUser.image" class="comment-author-img img-responsive img-circle" width="50" height="50" />
+    
+          <button class="btn btn-sm btn-primary" type="submit">
+            Deixar Comentário
+          </button>
+    
+        </div>
+
       </form>
 
     </div>
 
-    <!-- DEIXAR COMENTARIO -->
-    <div *showAuthed="true" class="card-footer">
-
-      <img [src]="currentUser.image" class="comment-author-img img-responsive img-circle" width="50" height="50" />
-
-      <button class="btn btn-sm btn-primary" type="submit">
-       Deixar Comentário
-      </button>
-
-    </div>
+   
 
     <br>
 
