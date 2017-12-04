@@ -27,18 +27,20 @@ h5 {
     border: none;
     border-top: 1px solid rgba(34, 36, 38, .1);
     box-shadow: none;
+    background-color: #fff;
 }
 
 .card-img-top {
     display: block;
     width: 100%;
-    height: auto;
+    height: 200px;
 }
 
 .card-title {
     font-size: 1.28571429em;
     font-weight: 700;
     line-height: 1.2857em;
+    color: #000;
 }
 
 .card-text {
@@ -65,28 +67,19 @@ h5 {
 
 .profile {
     position: absolute;
-    top: -12px;
-    display: inline-block;
-    overflow: hidden;
-    box-sizing: border-box;
-    width: 25px;
-    height: 25px;
-    margin: 0;
-    border: 1px solid #fff;
+    top: -50px;
+    width: 75%;
+    height: 70px;
+    border: 3px solid #5CB85C;
     border-radius: 50%;
+
 }
 
 .profile-avatar {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 50%;
-}
-
-.profile-inline {
-    position: relative;
-    top: 0;
-    display: inline-block;
 }
 
 .profile-inline ~ .card-title {
@@ -112,3 +105,4 @@ h5 {
 .meta a:hover {
     color: rgba(0, 0, 0, .87);
 }
+
