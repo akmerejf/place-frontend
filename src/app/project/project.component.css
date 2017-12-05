@@ -27,5 +27,13 @@
     background-size: cover !important;
 }
 
+.card-block {
+    padding: 0;
+}
+
+.card {
+    margin-bottom: 0;
+}
+
 
 

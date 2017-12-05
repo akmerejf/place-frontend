@@ -1,14 +1,22 @@
 
-  <nav class="navbar navbar-fixed-top my-header" [ngClass]= "{'page-scroll-header': isScrolled}">
-    <div class="container">
-      <a class="item" [routerLink]="['/']">
-        
-        <!-- <img class="logo" src="assets/images/logo.png"> -->
-        <div class="title">
-          <div class="title1">place!</div>
-        </div>
-      </a>
-     
+<nav class="navbar navbar-fixed-top my-header" [ngClass]= "{'page-scroll-header': isScrolled}">
+
+  <div class="container">
+
+    <a class="item" [routerLink]="['/']">
+      
+      <!-- <img class="logo" src="assets/images/logo.png"> -->
+      <div class="title">
+        <div class="title1">place!</div>
+      </div>
+
+    </a>
+
+    <button class="nav-btn navbar-toggler hidden-md-up" type="button" data-toggle="collapse" href="#collapseExample" >
+      &#9776;
+    </button>
+   
+    <div class="collapse navbar-toggleable-sm" id="collapseExample">
 
       <!-- Show this for logged out users -->
       <ul *showAuthed="false"
@@ -80,4 +88,7 @@
       </ul>
 
     </div>
-  </nav>
+
+  </div>
+
+</nav>

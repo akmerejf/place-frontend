@@ -1,48 +1,79 @@
 
 <div class="card card-inverse card-info">
-    <img class="card-img-top img-thumbnail" [src]="envPath+project.image.url">
-    <div class="card-block">
-       
-        <a class="author"
-        [routerLink]="['/profile', project.author.username]">
-        <figure class="profile profile-inline">
+
+
+  <!-- IMAGEM DO PROJETO -->
+  <img class="card-img-top" [src]="envPath+project.image.url" >
+
+  <div class="card-block">
+
+     <div class="row text-center">
+
+      <div class="col-xs-4"></div>
+    
+      <!-- FOTO DO PERFIL AUTOR -->
+      <a class="author col-xs-4"
+      [routerLink]="['/profile', project.author.username]">          
+
+          <figure class="profile">
+
             <img [src]="project.author.image" class="profile-avatar" alt="">
-        </figure>
+
+          </figure>        
+
+        <br>
+
         {{ project.author.username }}
+      
+      </a>
+
+      <div class="col-xs-4 text-right">
         
-        </a>
-        
-        <a [routerLink]="['/project', project.slug]" class="preview-link">
-          
-          <h4 class="card-title mt-3">{{ project.title}}</h4>
-          
-          <div class="card-text">
-              {{ project.description }}
-          </div>
-          <span>Saber mais...</span>
-        </a>
-    </div>
-    <div class="card-footer">
+        <!-- BOTAO FAVORITAR -->
         <favorite-button
         [project]="project"
         (onToggle)="onToggleFavorite($event)"
         class="float-right">
         {{project.favoritesCount}}
         </favorite-button>
-        <a *ngIf="project.favorited">Amei</a>
-        <p>
-          <span class="date">
-            {{ project.createdAt | date: 'longDate' }}
-          </span>
-        </p>
+
+      </div>
+
+      </div>
+      
+      <a [routerLink]="['/project', project.slug]" class="preview-link">
         
-          <ul class="tag-list">
-            <li class="tag-default tag-pill tag-outline"
-              *ngFor="let tag of project.tagList">
-              {{ tag }}
-            </li>
-          </ul>
-    </div>
+        <!-- TITULO DO PROJETO -->
+        <h4 class="card-title mt-3">{{ project.title}}</h4>
+        
+        <!-- BREVE DESCRICAO DO PROJETO -->
+        <div class="card-text">
+            {{ project.description }}
+        </div>
+
+      </a>
+
+  </div>
+
+  <div class="card-footer">
+
+    <!-- DATA POSTAGEM -->
+    <p>
+      <span class="date">
+        {{ project.createdAt | date: 'longDate' }}
+      </span>
+    </p>
+    
+    <!-- TAGS DO PROJETO -->
+    <ul class="tag-list">
+      <li class="tag-default tag-pill tag-outline"
+        *ngFor="let tag of project.tagList">
+        {{ tag }}
+      </li>
+    </ul>
+
+  </div>
+
 </div>
 
 

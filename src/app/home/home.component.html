@@ -3,16 +3,16 @@
   <div class="background-img" style="background: url('./assets/images/homewallpaper.jpg') no-repeat center center; background-size: cover;">
     <div class="row">
 
-      <div class="col-sm-2"></div>  
-      <div class="col-sm-8 text-center ">
+      <div class="col-xs-1 col-md-3"></div>  
+      <div class="col-xs-10 col-md-6 text-center ">
       <br><br><br><br><br>
         
           <h2>Ambiente virtual para divulgar suas ideias, agendar encontros e interagir com outros usuários.</h2>
 
-          <a class="btn" routerLink="/register" role="button">Comece já!</a>
+          <a *showAuthed="false" class="btn" routerLink="/register" role="button">Comece já!</a>
 
       </div>
-      <div class="col-sm-2"></div>
+      <div class="col-xs-1 col-md-3"></div>
 
     </div>
 
