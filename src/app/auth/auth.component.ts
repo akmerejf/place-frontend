@@ -52,6 +52,7 @@ export class AuthComponent implements OnInit {
       data => this.router.navigateByUrl('/'),
       err => {
         this.errors = err;
+        console.log(this.errors.status);
         this.isSubmitting = false;
       }
     );

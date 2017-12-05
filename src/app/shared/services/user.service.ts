@@ -9,6 +9,7 @@ import 'rxjs/add/operator/catch';
 import { ApiService } from './api.service';
 import { JwtService } from './jwt.service';
 import { User } from '../models';
+import { error } from 'selenium-webdriver';
 
 
 @Injectable()
@@ -64,10 +65,12 @@ export class UserService {
     return this.apiService.post('/users' + route, {user: credentials})
     .map(
       data => {
+        
         this.setAuth(data.user);
+        
         return data;
       }
-    );
+    )
   }
 
   getCurrentUser(): User {
