@@ -65,3 +65,45 @@
 .avatar {
   border: 2px solid #e78b90;
 }
+
+.nav-btn{
+
+  color: gray;
+  float: right;
+}
+
+@media(max-width: 770px){
+
+  .my-header {
+    
+    background-color: #fafafa !important;
+  }
+
+  .my-header .title .title1 {
+    color: gray !important;
+  }
+  
+  .nav{
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .nav-item{
+    width: 100%;
+    text-align: center;
+    z-index: 1010;
+    float: right;
+    align-items: center;
+  }
+
+  .nav-link .user-pic {
+    
+    float: inherit;
+  }
+
+  .nav-item a{
+
+    color: gray!important;
+  }
+
+}
