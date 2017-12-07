@@ -32,12 +32,17 @@ export class HeaderComponent implements OnInit {
   }
 
   updateHeader(evt) {
+
     this.currPos = (window.pageYOffset || evt.target.scrollTop) - (evt.target.clientTop || -50);
-    if(this.currPos >= this.changePos ) {
+
+    if(this.currPos >= this.changePos) {
+
         this.isScrolled = true;
-    } else {
+    }else {
+
         this.isScrolled = false;
     }
+
   }
 
 }

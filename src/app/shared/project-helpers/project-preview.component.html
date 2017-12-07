@@ -1,7 +1,6 @@
 
 <div class="card card-inverse card-info">
 
-
   <!-- IMAGEM DO PROJETO -->
   <img class="card-img-top" [src]="envPath+project.image.url" >
 
@@ -9,37 +8,39 @@
 
      <div class="row text-center">
 
-      <div class="col-xs-4"></div>
-    
-      <!-- FOTO DO PERFIL AUTOR -->
-      <a class="author col-xs-4"
-      [routerLink]="['/profile', project.author.username]">          
-
-          <figure class="profile">
-
-            <img [src]="project.author.image" class="profile-avatar" alt="">
-
-          </figure>        
-
-        <br>
-
-        {{ project.author.username }}
+        <div class="col-xs-4"></div>
       
-      </a>
+        <!-- FOTO DO PERFIL AUTOR -->
+        <a class="author col-xs-4"
+        [routerLink]="['/profile', project.author.username]">          
 
-      <div class="col-xs-4 text-right">
+            <figure class="profile">
+
+              <img [src]="project.author.image" class="profile-avatar" alt="">
+
+            </figure>        
+
+          <br>
+
+          {{ project.author.username }}
         
-        <!-- BOTAO FAVORITAR -->
-        <favorite-button
-        [project]="project"
-        (onToggle)="onToggleFavorite($event)"
-        class="float-right">
-        {{project.favoritesCount}}
-        </favorite-button>
+        </a>
+
+        <div class="col-xs-4 text-right">
+          
+          <!-- BOTAO FAVORITAR -->
+          <favorite-button
+          [project]="project"
+          (onToggle)="onToggleFavorite($event)"
+          class="float-right">
+          {{project.favoritesCount}}
+          </favorite-button>
+
+        </div>
 
       </div>
 
-      </div>
+      <br>
       
       <a [routerLink]="['/project', project.slug]" class="preview-link">
         

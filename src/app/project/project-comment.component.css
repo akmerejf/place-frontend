@@ -4,7 +4,16 @@
 	color: red;
 }
 
-.col-sm-2 {
-	
-    max-width: 12%;
+.align-vertical-center{
+
+	display: flex;
+	align-items: center;
+
+}
+
+.detalhes-autor{
+
+	display: grid;
+	margin-left: 15px;
+
 }
