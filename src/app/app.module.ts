@@ -20,8 +20,10 @@ import {
   ProfilesService,
   SharedModule,
   TagsService,
-  UserService
+  UserService,
+  
 } from './shared';
+import { VerifyAccountModule } from 'app/verify-account/verify-account.module';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 
@@ -40,7 +42,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     ProfileModule,
     rootRouting,
     SharedModule,
-    SettingsModule
+    SettingsModule,
+    VerifyAccountModule
   ],
   providers: [
     ApiService,

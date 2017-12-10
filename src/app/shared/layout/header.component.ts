@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, NgZone } from '@angular/core';
 
 import { User } from '../models';
 import { UserService } from '../services';
@@ -14,7 +14,8 @@ import { UserService } from '../services';
 })
 export class HeaderComponent implements OnInit {
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    // private zone: NgZone
   ) {}
 
   currentUser: User;
@@ -26,7 +27,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.userService.currentUser.subscribe(
       (userData) => {
-        this.currentUser = userData;
+          this.currentUser = userData;
+       
       }
     )
   }

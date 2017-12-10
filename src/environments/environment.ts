@@ -5,9 +5,9 @@
 
 export const environment = {
   production: false,
-  // api_url: 'http://localhost:3000/api', //local
-  // image_url: 'http://localhost:3000/' //local
-  api_url: 'http://104.236.7.68:8000/api', //remoto
-  image_url: 'http://104.236.7.68:8000/' //remoto
+  api_url: 'http://localhost:3000/api', //local
+  image_url: 'http://localhost:3000/' //local
+  // api_url: 'http://104.236.7.68:8000/api', //remoto
+  // image_url: 'http://104.236.7.68:8000/' //remoto
   
 };

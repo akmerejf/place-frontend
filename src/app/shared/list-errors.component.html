@@ -1,7 +1,11 @@
 <ul class="error-messages" *ngIf="errorList">
   <li *ngFor="let error of errorList">
     {{ error }}
-    <a  *ngIf="resendEmail">Reenviar email de confirmação</a>
+    
+  </li>
+
+  <li *ngIf="resendEmail">
+    <a  >Reenviar email de confirmação</a>
   </li>
   
 </ul>
