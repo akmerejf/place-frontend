@@ -1,16 +1,20 @@
+<div class="atualizar-imagem" (click)="file.click()">
 
-        <a href="javascript:void(0)" (click)="file.click()" >
-         Click aqui para alterar a imagem
-        </a>
-        ou arraste uma imagem
-        <input type="file" 
-               #file 
-               [multiple]="(maxFiles > 1)"
-               (change) = "onFileChange($event)"
-               style="display:none" />
+  <a href="javascript:void(0)" >
+
+    <i class="fa fa-camera" aria-hidden="true"></i>
+    Atualizar imagem
+
+  </a>
+  <input type="file" 
+         #file 
+         [multiple]="(maxFiles > 1)"
+         (change) = "onFileChange($event)"
+         style="display:none" />
 
   <div class="row error pull-right" *ngIf="errors.length > 0">    
     <ul>
       <li *ngFor="let err of errors">{{err}}</li>
     </ul>
-  </div>  
+  </div>
+</div>  

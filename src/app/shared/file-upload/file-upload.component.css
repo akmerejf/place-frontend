@@ -13,3 +13,20 @@
     background-color: #eff;
     color: #aaa;
 }
+
+.atualizar-imagem a{
+    color: #fff;
+}
+
+.atualizar-imagem{
+    width: 100%;
+    text-align: center;
+    padding: 3%;
+    transition: all 0.1s linear;
+    font-size: 0px;
+    cursor: pointer;
+}
+.atualizar-imagem:hover{
+    background-color: rgba(0,0,0,0.6);
+    font-size: 18px;
+}
