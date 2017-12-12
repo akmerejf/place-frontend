@@ -33,11 +33,15 @@ export class AuthComponent implements OnInit {
       console.log('configured routes: ', this.router.config);
       // Get the last piece of the URL (it's either 'login' or 'register')
       this.authType = data[data.length - 1].path;
+      console.log(this.authType = data[data.length - 1].path);
       // Set a title for the page accordingly
       this.title = (this.authType === 'login') ? 'Sign in' : 'Sign up';
       // add form control for username if this is the register page
       if (this.authType === 'register') {
         this.authForm.addControl('username', new FormControl());
+      }else if(this.authType==='reset_password'){
+        this.authForm.removeControl('password');
+        this.title = 'Trocar senha' ;
       }
     });
   }
@@ -52,6 +56,18 @@ export class AuthComponent implements OnInit {
         confirmButtonText: 'Okey!'
       });
     }
+
+    resetPassword() {
+      swal({
+      itle: 'Verifique seu email.',
+      text: "Nós lhe enviamos um email com instruções para redefinir sua senha",        
+      confirmButtonColor: '#3085d6',        
+      imageUrl: './assets/images/mail.jpg',
+      imageWidth: 400,
+      imageHeight: 300,
+      confirmButtonText: 'Okey!'
+    });
+  }
 
 
   submitForm() {
@@ -71,7 +87,7 @@ export class AuthComponent implements OnInit {
           this.isSubmitting = false;
         }
       );
-    }else{
+    }else if (this.authType=='register'){
       this.userService
       .createAccount(this.authType, credentials)
       .subscribe(
@@ -85,6 +101,20 @@ export class AuthComponent implements OnInit {
           this.isSubmitting = false;
         }
       );
-    }
+    }else if (this.authType=='reset_password'){
+      this.userService
+      .resetPassword(this.authType, credentials)
+      .subscribe(
+        data => {
+         this.resetPassword();
+          this.router.navigateByUrl('/login');
+        },
+        err => {
+          this.errors = err;
+          console.log(this.errors.status);
+          this.isSubmitting = false;
+        }
+      );
+    };
   }
 }
