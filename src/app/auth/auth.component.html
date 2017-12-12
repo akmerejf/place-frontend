@@ -6,8 +6,8 @@
       <div class="col-md-6 offset-md-3 col-xs-12">
         <h1 class="text-xs-center">{{ title }}</h1>
         <p class="text-xs-center">
-          <a [routerLink]="['/login']" *ngIf="authType == 'register'">Já possui uma conta?</a>
-          <a [routerLink]="['/register']" *ngIf="authType == 'login'">Ainda não possui uma conta?</a>
+          <a [routerLink]="['/login']" *ngIf="authType == 'register' ">Já possui uma conta?</a>
+          <a [routerLink]="['/register']" *ngIf="authType == 'login' || authType == 'reset_password'">Ainda não possui uma conta?</a>
         </p>
         <list-errors [errors]="errors"></list-errors>
         <form [formGroup]="authForm" (ngSubmit)="submitForm()">
@@ -25,15 +25,19 @@
                 formControlName="email"
                 placeholder="Email"
                 class="form-control form-control-lg"
-                type="text" />
+                type="text"
+                />
             </fieldset>
             <fieldset class="form-group">
               <input
                 formControlName="password"
-                placeholder="Password"
+                placeholder="Senha"
                 class="form-control form-control-lg"
-                type="password" />
+                type="password" 
+                *ngIf="authType != 'reset_password'"/>
             </fieldset>
+            <a class="center" [routerLink]="['/reset_password']" *ngIf="authType == 'login'">Esqueceu sua senha?</a>
+            
             <button class="btn btn-lg btn-primary pull-xs-right" [disabled]="!authForm.valid" type="submit">
               {{ title }}
             </button>

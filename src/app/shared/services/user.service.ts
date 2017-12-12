@@ -96,6 +96,17 @@ export class UserService {
     )
   }
 
+  resetPassword(type, credentials){
+    return this.apiService.post('/users/password', {user: credentials} )
+    .map(
+      data => {
+        console.log("reset data: " + data);
+        return data;
+      },
+      error => this.purgeAuth()
+    )
+  }
+
   getCurrentUser(): User {
     return this.currentUserSubject.value;
   }
